@@ -1,6 +1,7 @@
 var React = require('react');
 var EmployeeStore = require('../store/EmployeeStore');
-var EmployeeList = require('../components/EmployeeList');
+var EmployeeList = require('./EmployeeList');
+var EmployeeInput = require('./EmployeeInput');
 
 function getEmployeeState() {
 	return {
@@ -30,6 +31,7 @@ var EmployeeApp = React.createClass({
     	<div>
     		<h2>Hello Employee</h2>
     		<EmployeeList allEmployees={this.state.allEmployees}/>
+    		<EmployeeInput/>
 			</div>
 		);
 	}
