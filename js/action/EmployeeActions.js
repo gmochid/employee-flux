@@ -1,5 +1,5 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var TodoConstants = require('../constants/TodoConstants');
+var EmployeeConstants = require('../constants/EmployeeConstants');
 
 var EmployeeAction = {
 	create: function(name, address, telephone) {
