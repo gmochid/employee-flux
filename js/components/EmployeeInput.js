@@ -1,27 +1,40 @@
 /** @jsx React.DOM */
-var React = require('react');
-var forms = require('newforms');
-
-var EmployeeForm = forms.Form.extend({
-  name: forms.CharField(),
-  address: forms.CharField(),
-  telephone: forms.CharField()
-});
+var React = require('react/addons');
 
 var EmployeeInput = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+  getInitialState: function() {
+    return {
+      name: "",
+      address: "",
+      telephone: ""
+    };
+  },
   render: function () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-        	<forms.RenderForm form={EmployeeForm} ref="employeeForm"/>
-          <button>Add</button>
-        </form>
+        <div>
+          <input ref="name" placeholder="Name" valueLink={this.linkState("name")}/>
+        </div>
+        <div>
+          <input ref="address" placeholder="Address" valueLink={this.linkState("address")}/>
+        </div>
+        <div>
+          <input ref="telephone" placeholder="Telephone" valueLink={this.linkState("telephone")}/>
+        </div>
+        <div>
+          <button onClick={this.handleSubmit}>Add</button>
+        </div>
+        <div>
+          {this.state.name}<br/>
+          {this.state.address}<br/>
+          {this.state.telephone}
+        </div>
       </div>
     );
   },
   handleSubmit: function() {
-    var form = this.refs.employeeForm.getForm();
-    console.log(form);
+    
   }
 });
 
