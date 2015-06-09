@@ -10,7 +10,7 @@ var EmployeeList = React.createClass({
 
   	for(var key in allEmployees) {
   		employeeList.push(
-        <EmployeeItem employee={allEmployees[key]} />
+        <EmployeeItem key={key} employee={allEmployees[key]} />
       );
   	}
 
