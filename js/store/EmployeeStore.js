@@ -75,6 +75,8 @@ AppDispatcher.register(function(action) {
 			EmployeeStore.emitChanges();
 			break;
 		case EmployeeConstants.EMPLOYEE_DESTROY:
+			destroy(action.id);
+			EmployeeStore.emitChanges();
 			break;
 		case EmployeeConstants.EMPLOYEE_UPDATE:
 			break;
