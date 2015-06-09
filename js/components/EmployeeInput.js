@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react/addons');
+var EmployeeAction = require('../action/EmployeeActions');
 
 var EmployeeInput = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
@@ -23,18 +24,19 @@ var EmployeeInput = React.createClass({
           <input ref="telephone" placeholder="Telephone" valueLink={this.linkState("telephone")}/>
         </div>
         <div>
-          <button onClick={this.handleSubmit}>Add</button>
-        </div>
-        <div>
-          {this.state.name}<br/>
-          {this.state.address}<br/>
-          {this.state.telephone}
+          <button onClick={this._save}>Save</button>
         </div>
       </div>
     );
   },
-  handleSubmit: function() {
-    
+
+  _save: function() {
+    EmployeeAction.create(
+      this.state.name,
+      this.state.address,
+      this.state.telephone
+    );
+    this.setState(this.getInitialState());
   }
 });
 

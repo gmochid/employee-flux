@@ -67,6 +67,12 @@ AppDispatcher.register(function(action) {
 
 	switch(action.actionType) {
 		case EmployeeConstants.EMPLOYEE_CREATE:
+			create(
+				action.name, 
+				action.address, 
+				action.telephone
+			);
+			EmployeeStore.emitChanges();
 			break;
 		case EmployeeConstants.EMPLOYEE_DESTROY:
 			break;

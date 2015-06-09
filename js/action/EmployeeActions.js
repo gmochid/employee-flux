@@ -9,6 +9,7 @@ var EmployeeAction = {
 			address: address,
 			telephone: telephone
 		});
+		console.log("dispatch");
 	},
 
 	update: function(id) {
