@@ -2,6 +2,9 @@ var React = require('react');
 var EmployeeStore = require('../store/EmployeeStore');
 var EmployeeList = require('./EmployeeList');
 var EmployeeInput = require('./EmployeeInput');
+var EmployeeAction = require('../action/EmployeeActions');
+var PageHeader = require('react-bootstrap').PageHeader;
+var Well = require('react-bootstrap').Well;
 
 function getEmployeeState() {
 	return {
@@ -29,12 +32,20 @@ var EmployeeApp = React.createClass({
 	render: function() {
 		return (
     	<div>
-    		<h2>Hello Employee</h2>
+    	  <PageHeader>Employee Management System<small>Hello</small></PageHeader>
     		<EmployeeList allEmployees={this.state.allEmployees}/>
-    		<EmployeeInput/>
+    		<EmployeeInput onSave={this._save}/>
 			</div>
 		);
-	}
+	},
+	
+	_save: function(newEmployee) {
+    EmployeeAction.create(
+      newEmployee.name,
+      newEmployee.address,
+      newEmployee.telephone
+    );
+  }
 });
 
 module.exports = EmployeeApp;
