@@ -79,6 +79,8 @@ AppDispatcher.register(function(action) {
 			EmployeeStore.emitChanges();
 			break;
 		case EmployeeConstants.EMPLOYEE_UPDATE:
+			update(action.id, action.employee);
+			EmployeeStore.emitChanges();
 			break;
 		default:
 			break;

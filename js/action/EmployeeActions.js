@@ -11,10 +11,11 @@ var EmployeeAction = {
 		});
 	},
 
-	update: function(id) {
+	update: function(employee) {
 		AppDispatcher.dispatch({
 			actionType: EmployeeConstants.EMPLOYEE_UPDATE,
-			id: id
+			id: employee.id,
+			employee: employee
 		});
 	},
 

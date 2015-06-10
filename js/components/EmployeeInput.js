@@ -5,11 +5,24 @@ var EmployeeInput = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function() {
     return {
+      id: "",
       name: "",
       address: "",
       telephone: ""
     };
   },
+
+  componentWillMount: function () {
+    if (this.props.employee) {
+      this.setState({
+        id: this.props.employee.id,
+        name: this.props.employee.name,
+        address: this.props.employee.address,
+        telephone: this.props.employee.telephone
+      });
+    }
+  },
+
   render: function () {
     return (
       <div>
