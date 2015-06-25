@@ -5,14 +5,7 @@ var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
 
-var _employees = {
-	'1': {
-		id: '1',
-		name: 'John Snow',
-		address: 'Minato-ku Konan',
-		telephone: '123-123-123'
-	}
-};
+var _employees = {};
 
 /**
  * Create an Employee item
